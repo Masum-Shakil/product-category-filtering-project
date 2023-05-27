@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+    
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        
+        {% block title %}
+        {% endblock title %}
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="static/style/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'style/style.css' %}">
+
+        {% block Style %} 
+        {% endblock Style %}
+
+    </head>
+    
+    <body class="product-category-18">
+
+        {% block MainContent %}                  
+        {% endblock MainContent %}
+
+        {% block JS %}                  
+        {% endblock JS %}
+        
+    </body>
+
+</html>

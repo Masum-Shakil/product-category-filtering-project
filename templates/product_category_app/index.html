@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Product Category</title>
+{% endblock title %}
+
+{% block Style %}
+{% endblock Style %}
+
+{% block MainContent %}
+    <section class="p-item-page bg-bt-gray p-tb-15">
+        <div class="container">
+            <div class="row">
+                <column id="column-left" class="col-sm-3">
+                    <div class="filters">
+                        <div class="filter-group ws-box show" data-group-type="status">
+                            <div class="label">
+                                <span>Brands</span>
+                            </div>
+                            <div class="items">
+                                
+                                {% if brands %}
+                                    
+                                    {% for item in brands %}
+                                        <label class="filter">
+                                            <input type="radio" name="status" value="brand:{{ item.brand_name }}"/>
+                                            <span>{{ item.brand_name }}</span>
+                                        </label>
+                                    {% endfor %}
+                                
+                                {% else %}
+                                    <p style='color:blue'> No Brands Found</p>
+
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="filter-group ws-box show" data-group-type="status">
+                            <div class="label">
+                                <span>Sellers</span>
+                            </div>
+                            <div class="items">
+                                {% if sellers %}
+
+                                    {% for item in sellers %}
+                                        <label class="filter">
+                                            <input type="radio" name="status" value="sellers:{{ item.seller_name }}"/>
+                                            <span>{{ item.seller_name }}</span>
+                                        </label>
+                                    {% endfor %}
+
+                                {% else %}
+                                    <p style='color:blue'> No Sellers Found</p>
+
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="filter-group ws-box show" data-group-id="333">
+                            <div class="label">
+                                <span>Warranty</span>
+                            </div>
+                            <div class="items">
+                                {% if warranty %}
+                                    
+                                    {% for item in warranty %}
+                                        <label class="filter">
+                                            <input type="radio" name="status" value="warranty:{{ item.warranty_year }}"/>
+                                            <span>{{ item.warranty_year }} Year(s)</span>
+                                        </label>
+                                    {% endfor %}
+
+                                {% else %}
+                                    <p style='color:blue'> No Warranty Found</p>
+
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="filter-group ws-box show" data-group-id="333">
+                            <div class="label">
+                                <span>Types of Product</span>
+                            </div>
+                            <div class="items">
+                                {% if product_type %}
+                                    
+                                    {% for item in product_type %}
+                                        <label class="filter">
+                                            <input type="radio" name="status" value="types:{{ item.types }}"/>
+                                            <span>{{ item.types }}</span>
+                                        </label>
+                                    
+                                    {% endfor %}
+                                
+                                {% else %}
+                                    <p style='color:blue'> No Types of Product Found</p>
+
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </column>
+                <div class="col-xs-12 col-md-9 product-listing">                
+                    <div class="main-content p-items-wrap" id='ajax_id'>
+                        {% if products %}
+                            
+                            {% for item in products %}
+                                <div class="p-item">                            
+                                    <div class="p-item-inner">
+                                        <div class="p-item-img"><a
+                                                href="#"><img
+                                                    src="{{ item.image.url }}"
+                                                    alt="{{ item.product_name }}"
+                                                    width="500" height="600"></a></div>
+                                        <div class="p-item-details">
+                                            <h4 class="p-item-name"> <a
+                                                    href="#">{{ item.product_name }}</a></h4>
+                                            <div class="p-item-price">
+                                                <span>{{ item.price }}৳</span>
+                                            </div>
+                                            <div class="actions">
+                                                <span class="st-btn btn-add-cart" type="button"><i
+                                                        class="material-icons">shopping_cart</i> Buy Now</span>
+                                                <span class="st-btn btn-compare"><i
+                                                        class="material-icons">library_add</i>Add to Compare</span>
+                                            </div>
+                                        </div>
+                                    </div>                                
+                                </div>
+                            {% endfor %}
+
+                        {% else %}
+                                <p style='color:blue'> No Products Found</p>
+
+                        {% endif %}
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock MainContent %}
+
+{% block JS %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/script.js' %} "></script>
+{% endblock JS %}
