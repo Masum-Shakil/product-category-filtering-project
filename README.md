@@ -8,4 +8,5 @@ This is a simple product category filtering project using html, css, js, ajax, p
 3. Install the requirements.txt using "pip install -r requirements.txt"
 4. Turn on and configure the mysql database 
 5. Perform the model migrations using "python manage.py makemigrations" and "python manage.py migrate"
-6. Run the project usinng "python manage.py runserver"
+6. Insert the brand, seller, warranty, product type and product information data using admin panel.
+7. Run the project usinng "python manage.py runserver"
